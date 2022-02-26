@@ -40,6 +40,12 @@
 
     private void SetSource()
     {
+        if (Character.HairStyle == HairStyle.None)
+        {
+            HairSource = string.Empty;
+            return;
+        }
+
         HairSource = "assets/hair/" + Character.HairStyle switch
         {
             HairStyle.Bob => "bob",
