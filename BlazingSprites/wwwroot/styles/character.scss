@@ -16,6 +16,10 @@ $walking-width: $frame-size * $walking-keyframes;
     .blush {
         width: 5 * $walking-width;
 
+        &.none {
+            left: $walking-width;
+        }
+
         @for $i from 1 through 5 {
 
             &.color-#{$i} {

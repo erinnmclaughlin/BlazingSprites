@@ -21,6 +21,12 @@
 
     private void SetBlushCss()
     {
+        if (Character.BlushColor == BlushColor.None)
+        {
+            BlushCss = "none";
+            return;
+        }
+
         BlushCss = Character.BlushColor.ToString().Replace("Style", "color-");
     }
 
