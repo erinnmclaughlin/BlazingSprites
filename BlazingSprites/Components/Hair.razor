@@ -1,0 +1,8 @@
+﻿@using BlazingSprites.Models.Character
+
+<img class="hair spritesheet" src="assets/hair/bob.png" />
+
+@code {
+
+    [CascadingParameter] public CharacterModel Character { get; set; } = null!;
+}

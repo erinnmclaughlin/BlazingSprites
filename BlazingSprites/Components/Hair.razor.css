@@ -1,0 +1,3 @@
+﻿.hair {
+    width: calc(3584px * var(--pixel-size)) !important;
+}

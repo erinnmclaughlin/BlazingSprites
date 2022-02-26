@@ -1,0 +1,12 @@
+﻿@import url('character.css');
+@import url('shadow.css');
+
+:root {
+    --base-width: 32px;
+    --pixel-size: 6;
+}
+
+.spritesheet {
+    image-rendering: pixelated;
+    position: absolute;
+}
