@@ -1,8 +1,62 @@
 ﻿@using BlazingSprites.Models.Character
 
-<img class="hair spritesheet" src="assets/hair/bob.png" />
+<img class="spritesheet hair @HairColorCss" src="assets/hair/@(HairSource).png" />
 
 @code {
 
     [CascadingParameter] public CharacterModel Character { get; set; } = null!;
+
+    private string HairColorCss { get; set; } = "color-1";
+    private string HairSource { get; set; } = "bob.png";
+
+    protected override void OnParametersSet()
+    {
+        SetColor();
+        SetSource();
+    }
+
+    private void SetColor()
+    {
+        HairColorCss = Character.HairColor switch
+        {
+            HairColor.DarkBrown => "color-1",
+            HairColor.Blonde => "color-2",
+            HairColor.Brown => "color-3",
+            HairColor.LightBrown => "color-4",
+            HairColor.Ginger => "color-5",
+            HairColor.Green => "color-6",
+            HairColor.LimeGreen => "color-7",
+            HairColor.Gray => "color-8",
+            HairColor.LightPurple => "color-9",
+            HairColor.Purple => "color-10",
+            HairColor.Pink => "color-11",
+            HairColor.Violet => "color-12",
+            HairColor.Red => "color-13",
+            HairColor.Teal => "color-14",
+            _ => throw new NotSupportedException()
+        };
+    }
+
+    private void SetSource()
+    {
+        HairSource = Character.HairStyle switch
+        {
+            HairStyle.Bob => "bob",
+            HairStyle.Braids => "braids",
+            HairStyle.Buzzcut => "buzzcut",
+            HairStyle.Curly => "curly",
+            HairStyle.Emo => "emo",
+            HairStyle.ExtraLong => "extra_long",
+            HairStyle.ExtraLongSkirt => "extra_long_skirt",
+            HairStyle.FrenchCurl => "french_curl",
+            HairStyle.Gentleman => "gentleman",
+            HairStyle.LongStraight => "long_straight",
+            HairStyle.LongStraightSkirt => "long_straight_skirt",
+            HairStyle.Midiwave => "midiwave",
+            HairStyle.Ponytail => "ponytail",
+            HairStyle.Spacebuns => "spacebuns",
+            HairStyle.Wavy => "wavy",
+            _ => throw new NotSupportedException()
+        };
+    }
 }

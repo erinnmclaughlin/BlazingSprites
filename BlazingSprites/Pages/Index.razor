@@ -1,10 +1,51 @@
 ﻿@page "/"
+@using BlazingSprites.Models.Character
 
 <PageTitle>Home - Blazing Sprites</PageTitle>
 
-<Character />
+<div style="display: flex;">
+
+    <Character Model="Model" />
+
+    <EditForm Model="Model">
+
+        <div>
+            <label>Skin Color</label>
+            <InputSelect @bind-Value="Model.SkinColor">
+                @foreach (var skinColor in Enum.GetValues<SkinColor>())
+                {
+                    <option>@skinColor</option>
+                }
+            </InputSelect>
+        </div>
+        
+        <div>
+            <label>Hair Color</label>
+            <InputSelect @bind-Value="Model.HairColor">
+                @foreach (var hairColor in Enum.GetValues<HairColor>())
+                {
+                    <option>@hairColor</option>
+                }
+            </InputSelect>
+        </div>
+        
+        <div>
+            <label>Hair Style</label>
+            <InputSelect @bind-Value="Model.HairStyle">
+                @foreach (var hairStyle in Enum.GetValues<HairStyle>())
+                {
+                    <option>@hairStyle</option>
+                }
+            </InputSelect>
+        </div>
+
+
+
+    </EditForm>
+
+</div>
 
 @code {
 
-
+    private CharacterModel Model = new();
 }

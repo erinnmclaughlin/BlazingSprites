@@ -10,16 +10,16 @@
 
 @code {
 
-    [Parameter] public CharacterModel Model { get; set; } = new();
+    [Parameter, EditorRequired] public CharacterModel Model { get; set; } = null!;
 
     private string CharacterSource { get; set; } = "char1.png";
 
     protected override void OnParametersSet()
     {
-        SetCharacterSource();
+        SetSource();
     }
 
-    void SetCharacterSource()
+    void SetSource()
     {
         CharacterSource = Model.SkinColor switch
         {

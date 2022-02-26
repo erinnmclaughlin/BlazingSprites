@@ -18,8 +18,8 @@ $walking-width: $frame-size * $walking-keyframes;
 
         @for $i from 1 through 14 {
 
-            &.style-#{$i} {
-                left: -1 * $i * $walking-width
+            &.color-#{$i} {
+                left: -1 * ($i - 1) * $walking-width
             }
         }
     }
