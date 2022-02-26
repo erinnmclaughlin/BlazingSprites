@@ -1,6 +1,7 @@
 ﻿:root {
+
     --character-width: calc(var(--base-width) * var(--pixel-size));
-    --character-height: calc(var(--character-width) + 16px);
+    --character-height: calc(var(--character-width) + calc(var(--base-width) / 2));
 
     --walking-keyframes: 8;
     --walking-width: calc(var(--character-width) * var(--walking-keyframes));
@@ -13,9 +14,16 @@
     position: relative;
 }
 
+    .character .body {
+        width: calc(256px * var(--pixel-size));
+    }
+
+    .character .hair {
+        width: calc(3584px * var(--pixel-size));
+    }
+
     .character.walking > .spritesheet {
         animation: walk 1s steps(var(--walking-keyframes)) infinite;
-        width: var(--walking-width);
     }
 
     character.walking.face-down > .spritesheet {
