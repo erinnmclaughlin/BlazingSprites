@@ -1,44 +1,53 @@
-﻿:root {
-    --character-width: calc(var(--base-width) * var(--pixel-size));
-    --character-height: calc(var(--character-width) + calc(var(--base-width) / 2));
-    --walking-keyframes: 8;
-    --walking-width: calc(var(--character-width) * var(--walking-keyframes));
-}
+﻿@import 'base.scss';
+
+$walking-keyframes: 8;
+$walking-width: $frame-size * $walking-keyframes;
 
 .character {
-    width: var(--character-width);
-    height: var(--character-height);
+    width: $frame-size;
+    height: $frame-size + ($base-width / 2);
     overflow: hidden;
     position: relative;
+
+    .body {
+        width: $walking-width;
+    }
+
+    .hair {
+        width: 14 * $walking-width;
+
+        @for $i from 1 through 14 {
+
+            &.style-#{$i} {
+                left: -1 * $i * $walking-width
+            }
+        }
+    }
+
+    &.walking {
+
+        > .spritesheet {
+            animation: walk 1s steps($walking-keyframes) infinite;
+        }
+
+        &.face-down > .spritesheet {
+            top: 0;
+        }
+
+        &.face-up > .spritesheet {
+            top: -1 * $frame-size;
+        }
+
+        &.face-right > .spritesheet {
+            top: -2 * $frame-size;
+        }
+
+        &.face-left > .spritesheet {
+            top: -3 * $frame-size;
+        }
+    }
 }
 
-.character .body {
-    width: calc(256px * var(--pixel-size));
-}
-
-.character .hair {
-    width: calc(3584px * var(--pixel-size));
-}
-
-.character.walking > .spritesheet {
-    animation: walk 1s steps(var(--walking-keyframes)) infinite;
-}
-
-character.walking.face-down > .spritesheet {
-    top: 0;
-}
-
-.character.walking.face-up > .spritesheet {
-    top: calc(-32px * var(--pixel-size));
-}
-
-.character.walking.face-right > .spritesheet {
-    top: calc(-64px * var(--pixel-size));
-}
-
-.character.walking.face-left > .spritesheet {
-    top: calc(-96px * var(--pixel-size));
-}
 
 @keyframes walk {
     from {
@@ -46,6 +55,6 @@ character.walking.face-down > .spritesheet {
     }
 
     to {
-        transform: translate3d(calc(-1 * var(--walking-width)), 0, 0);
+        transform: translate3d(-1 * $walking-width, 0, 0);
     }
 }

@@ -1,0 +1,8 @@
+﻿$base-width: 32px;
+$pixel-size: 6;
+$frame-size: $base-width * $pixel-size;
+
+.spritesheet {
+    image-rendering: pixelated;
+    position: absolute;
+}
