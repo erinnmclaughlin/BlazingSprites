@@ -1,13 +1,14 @@
 ﻿@using BlazingSprites.Models.Character
 
-<img class="spritesheet hair @HairColorCss" src="assets/hair/@(HairSource).png" />
+<img class="spritesheet hair @HairColorCss" src="@HairSource" />
+
 
 @code {
 
     [CascadingParameter] public CharacterModel Character { get; set; } = null!;
 
     private string HairColorCss { get; set; } = "color-1";
-    private string HairSource { get; set; } = "bob.png";
+    private string HairSource { get; set; } = "assets/hair/bob.png"; 
 
     protected override void OnParametersSet()
     {
@@ -19,27 +20,27 @@
     {
         HairColorCss = Character.HairColor switch
         {
-            HairColor.DarkBrown => "color-1",
+            HairColor.Black => "color-1",
             HairColor.Blonde => "color-2",
             HairColor.Brown => "color-3",
             HairColor.LightBrown => "color-4",
-            HairColor.Ginger => "color-5",
-            HairColor.Green => "color-6",
-            HairColor.LimeGreen => "color-7",
-            HairColor.Gray => "color-8",
-            HairColor.LightPurple => "color-9",
-            HairColor.Purple => "color-10",
+            HairColor.Copper => "color-5",
+            HairColor.Emerald => "color-6",
+            HairColor.Green => "color-7",
+            HairColor.Grey => "color-8",
+            HairColor.Lilac => "color-9",
+            HairColor.Navy => "color-10",
             HairColor.Pink => "color-11",
-            HairColor.Violet => "color-12",
+            HairColor.Purple => "color-12",
             HairColor.Red => "color-13",
-            HairColor.Teal => "color-14",
+            HairColor.Turquoise => "color-14",
             _ => throw new NotSupportedException()
         };
     }
 
     private void SetSource()
     {
-        HairSource = Character.HairStyle switch
+        HairSource = "assets/hair/" + Character.HairStyle switch
         {
             HairStyle.Bob => "bob",
             HairStyle.Braids => "braids",
@@ -57,6 +58,6 @@
             HairStyle.Spacebuns => "spacebuns",
             HairStyle.Wavy => "wavy",
             _ => throw new NotSupportedException()
-        };
+        } + ".png";
     }
 }

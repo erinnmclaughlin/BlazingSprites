@@ -38,7 +38,37 @@
                 }
             </InputSelect>
         </div>
+        
+        <div>
+            <label>Eyes</label>
+            <InputSelect @bind-Value="Model.EyeColor">
+                @foreach (var eyeColor in Enum.GetValues<EyeColor>())
+                {
+                    <option>@eyeColor</option>
+                }
+            </InputSelect>
+        </div>
 
+        <div>
+            <label>Blush</label>
+            <InputSelect @bind-Value="Model.BlushColor">
+                @foreach (var blushStyle in Enum.GetValues<BlushColor>())
+                {
+                    <option>@blushStyle</option>
+                }
+            </InputSelect>
+        </div>
+
+        
+        <div>
+            <label>Lips</label>
+            <InputSelect @bind-Value="Model.LipColor">
+                @foreach (var lipColor in Enum.GetValues<LipColor>())
+                {
+                    <option>@lipColor</option>
+                }
+            </InputSelect>
+        </div>
 
 
     </EditForm>

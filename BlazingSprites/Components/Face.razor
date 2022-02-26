@@ -1,0 +1,37 @@
+﻿@using BlazingSprites.Models.Character
+
+<img class="spritesheet eyes @EyeCss" src="assets/face/eyes.png" />
+<img class="spritesheet blush @BlushCss" src="assets/face/blush.png" />    
+<img class="spritesheet lips @LipCss" src="assets/face/lips.png" />
+
+@code {
+
+    [CascadingParameter] public CharacterModel Character { get; set; } = null!;
+
+    private string BlushCss { get; set; } = "color-1";
+    private string EyeCss { get; set; } = "color-1";
+    private string LipCss { get; set; } = "color-1";
+
+    protected override void OnParametersSet()
+    {
+        SetBlushCss();
+        SetEyeCss();
+        SetLipCss();
+    }
+
+    private void SetBlushCss()
+    {
+        BlushCss = Character.BlushColor.ToString().Replace("Style", "color-");
+    }
+
+    private void SetEyeCss()
+    {
+        EyeCss = Character.EyeColor.ToString().Replace("Style", "color-");
+    }
+
+    private void SetLipCss()
+    {
+        LipCss = Character.LipColor.ToString().Replace("Style", "color-");
+    }
+
+}
