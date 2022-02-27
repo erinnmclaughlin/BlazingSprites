@@ -1,4 +1,4 @@
-﻿namespace BlazingSprites.Models.Character;
+﻿namespace BlazingSprites.Models;
 
 public enum Direction { Down, Up, Left, Right }
 

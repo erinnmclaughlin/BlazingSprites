@@ -1,12 +1,12 @@
-﻿@using BlazingSprites.Models.Character
-
-<img class="spritesheet eyes @EyeCss" src="assets/face/eyes.png" />
+﻿<img class="spritesheet eyes @EyeCss" src="assets/face/eyes.png" />
 <img class="spritesheet blush @BlushCss" src="assets/face/blush.png" />    
 <img class="spritesheet lips @LipCss" src="assets/face/lips.png" />
 
 @code {
 
-    [CascadingParameter] public CharacterModel Character { get; set; } = null!;
+    [Parameter, EditorRequired] public BlushColor BlushColor { get; set; }
+    [Parameter, EditorRequired] public EyeColor EyeColor { get; set; }
+    [Parameter, EditorRequired] public LipColor LipColor { get; set; }
 
     private string BlushCss { get; set; } = "color-1";
     private string EyeCss { get; set; } = "color-1";
@@ -21,23 +21,23 @@
 
     private void SetBlushCss()
     {
-        if (Character.BlushColor == BlushColor.None)
+        if (BlushColor == BlushColor.None)
         {
             BlushCss = "none";
             return;
         }
 
-        BlushCss = Character.BlushColor.ToString().Replace("Color", "color-");
+        BlushCss = BlushColor.ToString().Replace("Color", "color-");
     }
 
     private void SetEyeCss()
     {
-        EyeCss = Character.EyeColor.ToString().Replace("Color", "color-");
+        EyeCss = EyeColor.ToString().Replace("Color", "color-");
     }
 
     private void SetLipCss()
     {
-        LipCss = Character.LipColor.ToString().Replace("Color", "color-");
+        LipCss = LipColor.ToString().Replace("Color", "color-");
     }
 
 }

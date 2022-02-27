@@ -1,0 +1,18 @@
+﻿<img class="spritesheet body" src="assets/characters/@BodySource" />
+
+@code {
+
+    [Parameter, EditorRequired] public SkinColor SkinColor { get; set; }
+
+    private string BodySource { get; set; } = "char1.png";
+
+    protected override void OnParametersSet()
+    {
+        SetSource();
+    }
+
+    void SetSource()
+    {
+        BodySource = SkinColor.ToString().Replace("Skin", "char") + ".png";
+    }
+}
