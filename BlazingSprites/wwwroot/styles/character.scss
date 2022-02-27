@@ -28,8 +28,12 @@ $walking-width: $frame-size * $walking-keyframes;
         }
     }
 
-    .pants, .shirt {
+    .pants, .shirt, .shoes {
         width: 10 * $walking-width;
+
+        &.none {
+            left: $walking-width;
+        }
 
         @for $i from 1 through 10 {
 

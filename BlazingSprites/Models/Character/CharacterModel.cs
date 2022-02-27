@@ -16,4 +16,7 @@ public class CharacterModel
 
     public ClothesColor PantColor { get; set; }
     public PantStyle PantStyle { get; set; }
+
+    public ClothesColor ShoeColor { get; set; }
+    public ShoeStyle ShoeStyle { get; set; }
 }

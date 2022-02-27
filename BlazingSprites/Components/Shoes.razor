@@ -1,0 +1,31 @@
+﻿@using BlazingSprites.Models.Character
+
+<img class="spritesheet shoes @ShoeCss" src="@ShoeSource" />
+
+@code {
+
+    [Parameter, EditorRequired] public ClothesColor Color { get; set; }
+    [Parameter, EditorRequired] public ShoeStyle Style { get; set; }
+
+    private string ShoeCss { get; set; } = "";
+    private string ShoeSource { get; set; } = "";
+
+    protected override void OnParametersSet()
+    {
+        SetShoeCss();
+        SetShoeSource();
+    }
+
+    private void SetShoeCss()
+    {
+        ShoeCss = Color.ToString().Replace("Color", "color-");
+    }
+
+    private void SetShoeSource()
+    {
+        if (Style == ShoeStyle.Basic)
+            ShoeSource = "assets/clothes/shoes.png";
+        else
+            ShoeSource = string.Empty;
+    }
+}
