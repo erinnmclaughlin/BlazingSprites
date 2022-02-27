@@ -1,9 +1,7 @@
 ﻿<img class="spritesheet pants @PantCss" src="@PantSource" />
 
 @code {
-
-    [Parameter, EditorRequired] public ClothesColor Color { get; set; }
-    [Parameter, EditorRequired] public PantStyle Style { get; set; }
+    [Parameter, EditorRequired] public PantsModel Model { get; set; } = null!;
 
     private string PantCss { get; set; } = "";
     private string PantSource { get; set; } = "";
@@ -16,18 +14,12 @@
 
     private void SetPantColor()
     {
-        PantCss = Color.ToString().Replace("Color", "color-");
+        PantCss = Model.Color.ToString().Replace("Color", "color-");
     }
 
     private void SetPantSource()
     {
-        if (Style == PantStyle.None)
-        {
-            PantSource = string.Empty;
-            return;
-        }
-
-        PantSource = $"assets/clothes/pants/{Style}.png".ToLower();
+        PantSource = Model.Style == PantStyle.None? string.Empty : $"assets/clothes/pants/{Model.Style}.png".ToLower();
     }
 
 }

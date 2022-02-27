@@ -1,9 +1,7 @@
 ﻿<img class="spritesheet shoes @ShoeCss" src="@ShoeSource" />
 
 @code {
-
-    [Parameter, EditorRequired] public ClothesColor Color { get; set; }
-    [Parameter, EditorRequired] public ShoeStyle Style { get; set; }
+    [Parameter, EditorRequired] public ShoesModel Model { get; set; } = null!;
 
     private string ShoeCss { get; set; } = "";
     private string ShoeSource { get; set; } = "";
@@ -16,14 +14,11 @@
 
     private void SetShoeCss()
     {
-        ShoeCss = Color.ToString().Replace("Color", "color-");
+        ShoeCss = Model.Color.ToString().Replace("Color", "color-");
     }
 
     private void SetShoeSource()
     {
-        if (Style == ShoeStyle.Basic)
-            ShoeSource = "assets/clothes/shoes.png";
-        else
-            ShoeSource = string.Empty;
+        ShoeSource = Model.Style == ShoeStyle.None ? string.Empty : "assets/clothes/shoes.png";
     }
 }

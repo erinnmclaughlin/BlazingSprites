@@ -86,86 +86,106 @@
                         </div>
                         <div>
                             <label>Hair Color</label>
-                            <InputSelect @bind-Value="Model.Hair.Color" disabled="@(Model.Hair.Style == HairStyle.None)">
-                                @if (Model.Hair.Style == HairStyle.None)
-                                {
-                                    <option selected disabled>&mdash;</option>
-                                }
-                                else
+                            <InputSelect @bind-Value="Model.Hair.Color" disabled="@(Model.HasHair == false)">
+                                @if (Model.HasHair)
                                 {
                                     foreach (var hairColor in Enum.GetValues<HairColor>())
                                     {
                                         <option>@hairColor</option>
                                     }
                                 }
+                                else
+                                {
+                                    <option selected disabled>&mdash;</option>
+                                }
                             </InputSelect>
                         </div>
                     </div>
 
                     <div>
                         <div>
-                            <label>Shirt Color</label>
-                            <InputSelect @bind-Value="Model.ShirtColor">
-                                @foreach (var color in Enum.GetValues<ClothesColor>())
-                                {
-                                    <option>@color</option>
-                                }
-                            </InputSelect>
-                        </div>
-        
-                        <div>
                             <label>Shirt Style</label>
-                            <InputSelect @bind-Value="Model.ShirtStyle">
+                            <InputSelect @bind-Value="Model.Clothing.Shirt.Style">
                                 @foreach (var style in Enum.GetValues<ShirtStyle>())
                                 {
                                     <option>@style</option>
                                 }
                             </InputSelect>
                         </div>
-                    </div>
-
-                    <div>
                         <div>
-                            <label>Pant Color</label>
-                            <InputSelect @bind-Value="Model.PantColor">
-                                @foreach (var color in Enum.GetValues<ClothesColor>())
+                            <label>Shirt Color</label>
+                            <InputSelect @bind-Value="Model.Clothing.Shirt.Color" disabled=@(Model.HasShirt == false)>
+                                @if (Model.HasShirt)
                                 {
-                                    <option>@color</option>
+                                    foreach (var color in Enum.GetValues<ShirtColor>())
+                                    {
+                                        <option>@color</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option selected disabled>&mdash;</option>
                                 }
                             </InputSelect>
                         </div>
-        
+                    </div>
+
+                    <div>                        
                         <div>
                             <label>Pant Style</label>
-                            <InputSelect @bind-Value="Model.PantStyle">
+                            <InputSelect @bind-Value="Model.Clothing.Pants.Style">
                                 @foreach (var style in Enum.GetValues<PantStyle>())
                                 {
                                     <option>@style</option>
                                 }
                             </InputSelect>
                         </div>
-                    </div>
-
-                    <div>
                         <div>
-                            <label>Shoe Color</label>
-                            <InputSelect @bind-Value="Model.ShoeColor">
-                                @foreach (var color in Enum.GetValues<ClothesColor>())
+                            <label>Pant Color</label>
+                            <InputSelect @bind-Value="Model.Clothing.Pants.Color" disabled="@(Model.HasPants == false)">
+                                @if (Model.HasPants)
                                 {
-                                    <option>@color</option>
+                                    foreach (var color in Enum.GetValues<PantColor>())
+                                    {
+                                        <option>@color</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option selected disabled>&mdash;</option>
                                 }
                             </InputSelect>
                         </div>
         
+                    </div>
+
+                    <div>
                         <div>
                             <label>Shoe Style</label>
-                            <InputSelect @bind-Value="Model.ShoeStyle">
+                            <InputSelect @bind-Value="Model.Clothing.Shoes.Style">
                                 @foreach (var style in Enum.GetValues<ShoeStyle>())
                                 {
                                     <option>@style</option>
                                 }
                             </InputSelect>
                         </div>
+                        <div>
+                            <label>Shoe Color</label>
+                            <InputSelect @bind-Value="Model.Clothing.Shoes.Color" disabled="@(Model.HasShoes == false)">
+                                @if (Model.HasShoes)
+                                {
+                                    foreach (var color in Enum.GetValues<ShoeColor>())
+                                    {
+                                        <option>@color</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option selected disabled>&mdash;</option>
+                                }
+                            </InputSelect>
+                        </div>
+        
                     </div>
             
                 </EditForm>

@@ -1,9 +1,7 @@
 ﻿<img class="spritesheet shirt @ShirtCss" src="@ShirtSource" />
 
 @code {
-
-    [Parameter, EditorRequired] public ClothesColor Color { get; set; }
-    [Parameter, EditorRequired] public ShirtStyle Style { get; set; }
+    [Parameter, EditorRequired] public ShirtModel Model { get; set; } = null!;
 
     private string ShirtCss { get; set; } = "";
     private string ShirtSource { get; set; } = "";
@@ -16,12 +14,12 @@
 
     private void SetShirtColor()
     {
-        ShirtCss = Color.ToString().Replace("Color", "color-");
+        ShirtCss = Model.Color.ToString().Replace("Color", "color-");
     }
 
     private void SetShirtSource()
     {
-        ShirtSource = $"assets/clothes/shirts/{Style}.png".ToLower();
+        ShirtSource = Model.Style == ShirtStyle.None ? string.Empty : $"assets/clothes/shirts/{Model.Style}.png".ToLower();
     }
 
 }

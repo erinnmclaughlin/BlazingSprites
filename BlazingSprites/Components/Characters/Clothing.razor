@@ -1,0 +1,7 @@
+﻿<Shirt Model="Model.Shirt" />
+<Pants Model="Model.Pants" />
+<Shoes Model="Model.Shoes" />
+
+@code {
+    [Parameter, EditorRequired] public ClothingModel Model { get; set; } = null!;
+}
