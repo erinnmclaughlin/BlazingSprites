@@ -13,4 +13,7 @@ public class CharacterModel
 
     public ClothesColor ShirtColor { get; set; }
     public ShirtStyle ShirtStyle { get; set; }
+
+    public ClothesColor PantColor { get; set; }
+    public PantStyle PantStyle { get; set; }
 }

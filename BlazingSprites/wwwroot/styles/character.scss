@@ -13,7 +13,7 @@ $walking-width: $frame-size * $walking-keyframes;
         width: $walking-width;
     }
 
-    .blush {
+    .blush, .lips {
         width: 5 * $walking-width;
 
         &.none {
@@ -28,7 +28,7 @@ $walking-width: $frame-size * $walking-keyframes;
         }
     }
 
-    .shirt {
+    .pants, .shirt {
         width: 10 * $walking-width;
 
         @for $i from 1 through 10 {
@@ -39,32 +39,10 @@ $walking-width: $frame-size * $walking-keyframes;
         }
     }
 
-    .eyes {
+    .hair, .eyes {
         width: 14 * $walking-width;
 
         @for $i from 1 through 14 {
-
-            &.color-#{$i} {
-                left: -1 * ($i - 1) * $walking-width
-            }
-        }
-    }
-
-    .hair {
-        width: 14 * $walking-width;
-
-        @for $i from 1 through 14 {
-
-            &.color-#{$i} {
-                left: -1 * ($i - 1) * $walking-width
-            }
-        }
-    }
-
-    .lips {
-        width: 5 * $walking-width;
-
-        @for $i from 1 through 5 {
 
             &.color-#{$i} {
                 left: -1 * ($i - 1) * $walking-width

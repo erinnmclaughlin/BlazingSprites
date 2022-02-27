@@ -7,6 +7,7 @@ public enum HairStyle { None, Bob, Braids, Buzzcut, Curly, Emo, ExtraLong, Extra
 
 public enum ClothesColor { Style1, Style2, Style3, Style4, Style5, Style6, Style7, Style8, Style9, Style10 };
 public enum ShirtStyle { Basic, Dress, Floral, Overalls, Sailor, Sailor_Bow, Skull, Spaghetti, Sporty, Stripe, Suit }
+public enum PantStyle { Pants, Pants_Suit, Skirt }
 
 public enum BlushColor { None, Style1, Style2, Style3, Style4, Style5 };
 public enum EyeColor { Style1, Style2, Style3, Style4, Style5, Style6, Style7, Style8, Style9, Style10, Style11, Style12, Style13, Style14 };

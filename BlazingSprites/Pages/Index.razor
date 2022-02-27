@@ -98,7 +98,27 @@
                 }
             </InputSelect>
         </div>
+        
 
+        <div>
+            <label>Pant Color</label>
+            <InputSelect @bind-Value="Model.PantColor">
+                @foreach (var color in Enum.GetValues<ClothesColor>())
+                {
+                    <option>@color</option>
+                }
+            </InputSelect>
+        </div>
+        
+        <div>
+            <label>Pant Style</label>
+            <InputSelect @bind-Value="Model.PantStyle">
+                @foreach (var style in Enum.GetValues<PantStyle>())
+                {
+                    <option>@style</option>
+                }
+            </InputSelect>
+        </div>
 
     </EditForm>
 
