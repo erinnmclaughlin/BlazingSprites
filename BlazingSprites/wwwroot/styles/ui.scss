@@ -1,4 +1,13 @@
-﻿.main-title {
+﻿* {
+    font: 11pt BubblegumSans;
+}
+
+.main-title {
     font: 64pt Rainmaker;
     cursor: default;
+}
+
+.main {
+    display: flex;
+    height: 100%;
 }

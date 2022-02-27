@@ -1,0 +1,173 @@
+﻿<div id="character-creator">
+    
+    <h2 class="title">Customize Character</h2>
+
+    <div class="content">
+
+        <div id="character-container">
+            <Character Model="Model" />
+        </div>
+
+        <div id="options-container" class="ml-4">
+            
+            <div class="content">
+                <EditForm Model="Model">
+                    <div>
+                        <div>
+                            <label>Animation</label>
+                            <InputSelect @bind-Value="Model.Animation">
+                                @foreach (var animation in Enum.GetValues<Animation>())
+                                {
+                                    <option>@animation</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div>
+                            <label>Direction</label>
+                            <InputSelect @bind-Value="Model.Direction">
+                                @foreach (var direction in Enum.GetValues<Direction>())
+                                {
+                                    <option>@direction</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label>Skin Color</label>
+                            <InputSelect @bind-Value="Model.SkinColor">
+                                @foreach (var skinColor in Enum.GetValues<SkinColor>())
+                                {
+                                    <option>@skinColor</option>
+                                }
+                            </InputSelect>
+                        </div>
+                        <div>
+                            <label>Eyes</label>
+                            <InputSelect @bind-Value="Model.EyeColor">
+                                @foreach (var eyeColor in Enum.GetValues<EyeColor>())
+                                {
+                                    <option>@eyeColor</option>
+                                }
+                            </InputSelect>
+                        </div>
+                        <div>
+                            <label>Blush</label>
+                            <InputSelect @bind-Value="Model.BlushColor">
+                                @foreach (var blushStyle in Enum.GetValues<BlushColor>())
+                                {
+                                    <option>@blushStyle</option>
+                                }
+                            </InputSelect>
+                        </div>
+                        <div>
+                            <label>Lips</label>
+                            <InputSelect @bind-Value="Model.LipColor">
+                                @foreach (var lipColor in Enum.GetValues<LipColor>())
+                                {
+                                    <option>@lipColor</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+        
+                    <div>
+                        <div>
+                            <label>Hair Color</label>
+                            <InputSelect @bind-Value="Model.HairColor">
+                                @foreach (var hairColor in Enum.GetValues<HairColor>())
+                                {
+                                    <option>@hairColor</option>
+                                }
+                            </InputSelect>
+                        </div>
+                        <div>
+                            <label>Hair Style</label>
+                            <InputSelect @bind-Value="Model.HairStyle">
+                                @foreach (var hairStyle in Enum.GetValues<HairStyle>())
+                                {
+                                    <option value="@hairStyle">@hairStyle.ToString().Replace('_', ' ')</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label>Shirt Color</label>
+                            <InputSelect @bind-Value="Model.ShirtColor">
+                                @foreach (var color in Enum.GetValues<ClothesColor>())
+                                {
+                                    <option>@color</option>
+                                }
+                            </InputSelect>
+                        </div>
+        
+                        <div>
+                            <label>Shirt Style</label>
+                            <InputSelect @bind-Value="Model.ShirtStyle">
+                                @foreach (var style in Enum.GetValues<ShirtStyle>())
+                                {
+                                    <option>@style</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label>Pant Color</label>
+                            <InputSelect @bind-Value="Model.PantColor">
+                                @foreach (var color in Enum.GetValues<ClothesColor>())
+                                {
+                                    <option>@color</option>
+                                }
+                            </InputSelect>
+                        </div>
+        
+                        <div>
+                            <label>Pant Style</label>
+                            <InputSelect @bind-Value="Model.PantStyle">
+                                @foreach (var style in Enum.GetValues<PantStyle>())
+                                {
+                                    <option>@style</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label>Shoe Color</label>
+                            <InputSelect @bind-Value="Model.ShoeColor">
+                                @foreach (var color in Enum.GetValues<ClothesColor>())
+                                {
+                                    <option>@color</option>
+                                }
+                            </InputSelect>
+                        </div>
+        
+                        <div>
+                            <label>Shoe Style</label>
+                            <InputSelect @bind-Value="Model.ShoeStyle">
+                                @foreach (var style in Enum.GetValues<ShoeStyle>())
+                                {
+                                    <option>@style</option>
+                                }
+                            </InputSelect>
+                        </div>
+                    </div>
+            
+                </EditForm>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+@code {
+    private CharacterModel Model { get; set; } = new();
+
+}

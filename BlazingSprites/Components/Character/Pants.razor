@@ -21,6 +21,12 @@
 
     private void SetPantSource()
     {
+        if (Style == PantStyle.None)
+        {
+            PantSource = string.Empty;
+            return;
+        }
+
         PantSource = $"assets/clothes/pants/{Style}.png";
     }
 

@@ -3,6 +3,11 @@ $pixel-size: 6;
 $frame-size: $base-width * $pixel-size;
 
 @font-face {
+    font-family: BubblegumSans;
+    src: url(../fonts/BubblegumSans-Regular.otf) format('opentype');
+}
+
+@font-face {
     font-family: Rainmaker;
     src: url("../fonts/the-rainmaker.regular.otf") format('opentype');
 }
@@ -10,6 +15,23 @@ $frame-size: $base-width * $pixel-size;
 * {
     margin: 0;
     padding: 0;
+}
+
+footer {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    background-color: ivory;
+    width: 100vw;
+    height: 100vh;
 }
 
 .spritesheet {
