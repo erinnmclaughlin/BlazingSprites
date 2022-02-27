@@ -46,24 +46,6 @@
             return;
         }
 
-        HairSource = "assets/hair/" + Style switch
-        {
-            HairStyle.Bob => "bob",
-            HairStyle.Braids => "braids",
-            HairStyle.Buzzcut => "buzzcut",
-            HairStyle.Curly => "curly",
-            HairStyle.Emo => "emo",
-            HairStyle.ExtraLong => "extra_long",
-            HairStyle.ExtraLongSkirt => "extra_long_skirt",
-            HairStyle.FrenchCurl => "french_curl",
-            HairStyle.Gentleman => "gentleman",
-            HairStyle.LongStraight => "long_straight",
-            HairStyle.LongStraightSkirt => "long_straight_skirt",
-            HairStyle.Midiwave => "midiwave",
-            HairStyle.Ponytail => "ponytail",
-            HairStyle.Spacebuns => "spacebuns",
-            HairStyle.Wavy => "wavy",
-            _ => throw new NotSupportedException()
-        } + ".png";
+        HairSource = $"assets/hair/{Style}.png".ToLower();
     }
 }

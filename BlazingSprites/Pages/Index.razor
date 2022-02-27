@@ -44,7 +44,7 @@
             <InputSelect @bind-Value="Model.HairStyle">
                 @foreach (var hairStyle in Enum.GetValues<HairStyle>())
                 {
-                    <option>@hairStyle</option>
+                    <option value="@hairStyle">@hairStyle.ToString().Replace('_', ' ')</option>
                 }
             </InputSelect>
         </div>

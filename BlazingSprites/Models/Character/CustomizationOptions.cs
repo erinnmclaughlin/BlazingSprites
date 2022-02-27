@@ -3,7 +3,7 @@
 public enum Direction { Down, Up, Left, Right }
 
 public enum HairColor { Black, Blonde, Brown, LightBrown, Copper, Emerald, Green, Grey, Lilac, Navy, Pink, Purple, Red, Turquoise }
-public enum HairStyle { None, Bob, Braids, Buzzcut, Curly, Emo, ExtraLong, ExtraLongSkirt, FrenchCurl, Gentleman, LongStraight, LongStraightSkirt, Midiwave, Ponytail, Spacebuns, Wavy }
+public enum HairStyle { None, Bob, Braids, Buzzcut, Curly, Emo, Extra_Long, French_Curl, Gentleman, Long_Straight, Midiwave, Ponytail, Spacebuns, Wavy }
 
 public enum ClothesColor { Style1, Style2, Style3, Style4, Style5, Style6, Style7, Style8, Style9, Style10 };
 public enum ShirtStyle { Basic, Dress, Floral, Overalls, Sailor, Sailor_Bow, Skull, Spaghetti, Sporty, Stripe, Suit }
