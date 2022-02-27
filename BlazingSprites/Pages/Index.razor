@@ -10,6 +10,16 @@
     <EditForm Model="Model">
 
         <div>
+            <label>Direction</label>
+            <InputSelect @bind-Value="Model.Direction">
+                @foreach (var direction in Enum.GetValues<Direction>())
+                {
+                    <option>@direction</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div>
             <label>Skin Color</label>
             <InputSelect @bind-Value="Model.SkinColor">
                 @foreach (var skinColor in Enum.GetValues<SkinColor>())

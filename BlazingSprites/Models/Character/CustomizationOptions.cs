@@ -1,5 +1,7 @@
 ﻿namespace BlazingSprites.Models.Character;
 
+public enum Direction { Down, Up, Left, Right }
+
 public enum HairColor { Black, Blonde, Brown, LightBrown, Copper, Emerald, Green, Grey, Lilac, Navy, Pink, Purple, Red, Turquoise }
 public enum HairStyle { None, Bob, Braids, Buzzcut, Curly, Emo, ExtraLong, ExtraLongSkirt, FrenchCurl, Gentleman, LongStraight, LongStraightSkirt, Midiwave, Ponytail, Spacebuns, Wavy }
 

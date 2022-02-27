@@ -1,6 +1,6 @@
 ﻿@using Models.Character
 
-<div class="character walking">
+<div class="character walking @DirectionCss">
     <CascadingValue Value="Model">
         <img class="shadow" src="assets/shadow.png" />
         <img class="spritesheet body" src="assets/characters/@CharacterSource" />
@@ -15,10 +15,17 @@
     [Parameter, EditorRequired] public CharacterModel Model { get; set; } = null!;
 
     private string CharacterSource { get; set; } = "char1.png";
+    private string DirectionCss { get; set; } = "face-down";
 
     protected override void OnParametersSet()
     {
+        SetDirection();
         SetSource();
+    }
+
+    void SetDirection()
+    {
+        DirectionCss = $"face-{Model.Direction}".ToLower();
     }
 
     void SetSource()
