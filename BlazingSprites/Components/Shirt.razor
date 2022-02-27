@@ -1,0 +1,29 @@
+﻿@using BlazingSprites.Models.Character
+
+<img class="spritesheet shirt @ShirtCss" src="@ShirtSource" />
+
+@code {
+
+    [Parameter, EditorRequired] public ClothesColor Color { get; set; }
+    [Parameter, EditorRequired] public ShirtStyle Style { get; set; }
+
+    private string ShirtCss { get; set; } = "";
+    private string ShirtSource { get; set; } = "";
+
+    protected override void OnParametersSet()
+    {
+        SetShirtColor();
+        SetShirtSource();
+    }
+
+    private void SetShirtColor()
+    {
+        ShirtCss = Color.ToString().Replace("Style", "color-");
+    }
+
+    private void SetShirtSource()
+    {
+        ShirtSource = $"assets/clothes/shirts/{Style}.png";
+    }
+
+}

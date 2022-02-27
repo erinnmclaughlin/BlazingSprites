@@ -58,7 +58,6 @@
                 }
             </InputSelect>
         </div>
-
         
         <div>
             <label>Lips</label>
@@ -66,6 +65,26 @@
                 @foreach (var lipColor in Enum.GetValues<LipColor>())
                 {
                     <option>@lipColor</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div>
+            <label>Shirt Color</label>
+            <InputSelect @bind-Value="Model.ShirtColor">
+                @foreach (var color in Enum.GetValues<ClothesColor>())
+                {
+                    <option>@color</option>
+                }
+            </InputSelect>
+        </div>
+        
+        <div>
+            <label>Shirt Style</label>
+            <InputSelect @bind-Value="Model.ShirtStyle">
+                @foreach (var style in Enum.GetValues<ShirtStyle>())
+                {
+                    <option>@style</option>
                 }
             </InputSelect>
         </div>

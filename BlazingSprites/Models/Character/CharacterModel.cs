@@ -8,4 +8,7 @@ public class CharacterModel
     public HairColor HairColor { get; set; }
     public HairStyle HairStyle { get; set; }
     public LipColor LipColor { get; set; }
+
+    public ClothesColor ShirtColor { get; set; }
+    public ShirtStyle ShirtStyle { get; set; }
 }

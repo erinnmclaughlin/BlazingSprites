@@ -2,13 +2,13 @@
 
 <img class="spritesheet hair @HairColorCss" src="@HairSource" />
 
-
 @code {
 
-    [CascadingParameter] public CharacterModel Character { get; set; } = null!;
+    [Parameter, EditorRequired] public HairColor Color { get; set; }
+    [Parameter, EditorRequired] public HairStyle Style { get; set; }
 
-    private string HairColorCss { get; set; } = "color-1";
-    private string HairSource { get; set; } = "assets/hair/bob.png"; 
+    private string HairColorCss { get; set; } = "";
+    private string HairSource { get; set; } = "";
 
     protected override void OnParametersSet()
     {
@@ -18,7 +18,7 @@
 
     private void SetColor()
     {
-        HairColorCss = Character.HairColor switch
+        HairColorCss = Color switch
         {
             HairColor.Black => "color-1",
             HairColor.Blonde => "color-2",
@@ -40,13 +40,13 @@
 
     private void SetSource()
     {
-        if (Character.HairStyle == HairStyle.None)
+        if (Style == HairStyle.None)
         {
             HairSource = string.Empty;
             return;
         }
 
-        HairSource = "assets/hair/" + Character.HairStyle switch
+        HairSource = "assets/hair/" + Style switch
         {
             HairStyle.Bob => "bob",
             HairStyle.Braids => "braids",
