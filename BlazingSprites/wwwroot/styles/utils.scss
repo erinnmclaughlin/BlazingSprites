@@ -1,0 +1,38 @@
+﻿$base-unit: 1rem;
+
+.text-center {
+    text-align: center;
+}
+
+@for $i from 1 through 6 {
+
+    .m-#{$i} {
+        margin: $base-unit * $i;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: $base-unit * $i;
+    }
+
+    .mt-#{$i} {
+        margin-top: $base-unit * $i;
+    }
+
+    .ml-#{$i} {
+        margin-left: $base-unit * $i;
+    }
+
+    .mr-#{$i} {
+        margin-right: $base-unit * $i;
+    }
+
+    .my-#{$i} {
+        margin-top: $base-unit * $i;
+        margin-bottom: $base-unit * $i;
+    }
+
+    .mx-#{$i} {
+        margin-left: $base-unit * $i;
+        margin-right: $base-unit * $i;
+    }
+}
