@@ -16,7 +16,7 @@
                         <div>
                             <label>Animation</label>
                             <InputSelect @bind-Value="Model.Animation">
-                                @foreach (var animation in Enum.GetValues<Animation>())
+                                @foreach (var animation in Enum.GetValues<CharacterAnimation>())
                                 {
                                     <option>@animation</option>
                                 }
@@ -46,7 +46,7 @@
                         </div>
                         <div>
                             <label>Eyes</label>
-                            <InputSelect @bind-Value="Model.EyeColor">
+                            <InputSelect @bind-Value="Model.Face.EyeColor">
                                 @foreach (var eyeColor in Enum.GetValues<EyeColor>())
                                 {
                                     <option>@eyeColor</option>
@@ -55,7 +55,7 @@
                         </div>
                         <div>
                             <label>Blush</label>
-                            <InputSelect @bind-Value="Model.BlushColor">
+                            <InputSelect @bind-Value="Model.Face.BlushColor">
                                 @foreach (var blushStyle in Enum.GetValues<BlushColor>())
                                 {
                                     <option>@blushStyle</option>
@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <label>Lips</label>
-                            <InputSelect @bind-Value="Model.LipColor">
+                            <InputSelect @bind-Value="Model.Face.LipColor">
                                 @foreach (var lipColor in Enum.GetValues<LipColor>())
                                 {
                                     <option>@lipColor</option>
@@ -75,20 +75,28 @@
         
                     <div>
                         <div>
-                            <label>Hair Color</label>
-                            <InputSelect @bind-Value="Model.HairColor">
-                                @foreach (var hairColor in Enum.GetValues<HairColor>())
+                            <label>Hair Style</label>
+                            <InputSelect @bind-Value="Model.Hair.Style">
+                                <option>None</option>
+                                @foreach (var hairStyle in Enum.GetValues<HairStyle>())
                                 {
-                                    <option>@hairColor</option>
+                                    <option value="@hairStyle">@hairStyle.ToString().Replace('_', ' ')</option>
                                 }
                             </InputSelect>
                         </div>
                         <div>
-                            <label>Hair Style</label>
-                            <InputSelect @bind-Value="Model.HairStyle">
-                                @foreach (var hairStyle in Enum.GetValues<HairStyle>())
+                            <label>Hair Color</label>
+                            <InputSelect @bind-Value="Model.Hair.Color" disabled="@(Model.Hair.Style == HairStyle.None)">
+                                @if (Model.Hair.Style == HairStyle.None)
                                 {
-                                    <option value="@hairStyle">@hairStyle.ToString().Replace('_', ' ')</option>
+                                    <option selected disabled>&mdash;</option>
+                                }
+                                else
+                                {
+                                    foreach (var hairColor in Enum.GetValues<HairColor>())
+                                    {
+                                        <option>@hairColor</option>
+                                    }
                                 }
                             </InputSelect>
                         </div>
@@ -166,8 +174,3 @@
     </div>
    
 </div>
-
-@code {
-    private CharacterModel Model { get; set; } = new();
-
-}

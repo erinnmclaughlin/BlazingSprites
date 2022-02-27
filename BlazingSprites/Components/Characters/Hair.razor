@@ -1,9 +1,7 @@
 ﻿<img class="spritesheet hair @HairColorCss" src="@HairSource" />
 
 @code {
-
-    [Parameter, EditorRequired] public HairColor Color { get; set; }
-    [Parameter, EditorRequired] public HairStyle Style { get; set; }
+    [Parameter, EditorRequired] public HairModel Model { get; set; } = null!;
 
     private string HairColorCss { get; set; } = "";
     private string HairSource { get; set; } = "";
@@ -16,7 +14,7 @@
 
     private void SetColor()
     {
-        HairColorCss = Color switch
+        HairColorCss = Model.Color switch
         {
             HairColor.Black => "color-1",
             HairColor.Blonde => "color-2",
@@ -38,12 +36,12 @@
 
     private void SetSource()
     {
-        if (Style == HairStyle.None)
+        if (Model.Style == HairStyle.None)
         {
             HairSource = string.Empty;
             return;
         }
 
-        HairSource = $"assets/hair/{Style}.png".ToLower();
+        HairSource = $"assets/hair/{Model.Style}.png".ToLower();
     }
 }

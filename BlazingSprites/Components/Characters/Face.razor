@@ -3,10 +3,7 @@
 <img class="spritesheet lips @LipCss" src="assets/face/lips.png" />
 
 @code {
-
-    [Parameter, EditorRequired] public BlushColor BlushColor { get; set; }
-    [Parameter, EditorRequired] public EyeColor EyeColor { get; set; }
-    [Parameter, EditorRequired] public LipColor LipColor { get; set; }
+    [Parameter, EditorRequired] public FaceModel Model { get; set; } = null!;
 
     private string BlushCss { get; set; } = "color-1";
     private string EyeCss { get; set; } = "color-1";
@@ -21,23 +18,23 @@
 
     private void SetBlushCss()
     {
-        if (BlushColor == BlushColor.None)
+        if (Model.BlushColor == BlushColor.None)
         {
             BlushCss = "none";
             return;
         }
 
-        BlushCss = BlushColor.ToString().Replace("Color", "color-");
+        BlushCss = Model.BlushColor.ToString().Replace("Color", "color-");
     }
 
     private void SetEyeCss()
     {
-        EyeCss = EyeColor.ToString().Replace("Color", "color-");
+        EyeCss = Model.EyeColor.ToString().Replace("Color", "color-");
     }
 
     private void SetLipCss()
     {
-        LipCss = LipColor.ToString().Replace("Color", "color-");
+        LipCss = Model.LipColor.ToString().Replace("Color", "color-");
     }
 
 }

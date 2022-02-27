@@ -1,16 +1,14 @@
-﻿namespace BlazingSprites.Models;
+﻿namespace BlazingSprites.Models.Characters;
 
 public class CharacterModel
 {
-    public Animation Animation { get; set; }
+    public CharacterAnimation Animation { get; set; }
     public Direction Direction { get; set; } = Direction.Right;
+    public FaceModel Face { get; set; } = new FaceModel();
+    public HairModel Hair { get; set; } = new HairModel();
 
-    public BlushColor BlushColor { get; set; }
-    public EyeColor EyeColor { get; set; }
+
     public SkinColor SkinColor { get; set; }
-    public HairColor HairColor { get; set; }
-    public HairStyle HairStyle { get; set; } = HairStyle.Bob;
-    public LipColor LipColor { get; set; }
 
     public ClothesColor ShirtColor { get; set; }
     public ShirtStyle ShirtStyle { get; set; }
