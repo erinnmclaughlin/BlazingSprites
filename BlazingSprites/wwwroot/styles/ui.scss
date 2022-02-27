@@ -5,6 +5,10 @@
 .main-title {
     font: 64pt Rainmaker;
     cursor: default;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .main {
