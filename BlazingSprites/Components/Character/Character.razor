@@ -1,4 +1,4 @@
-﻿<div class="character walking @DirectionCss">
+﻿<div class="character @CharacterCss">
     <Shadow />
     <Body SkinColor="Model.SkinColor" />
     <Face BlushColor="Model.BlushColor" EyeColor="Model.EyeColor" LipColor="Model.LipColor" />
@@ -12,15 +12,18 @@
 
     [Parameter, EditorRequired] public CharacterModel Model { get; set; } = null!;
 
-    private string DirectionCss { get; set; } = "face-down";
+    private string CharacterCss { get; set; } = "face-down";
 
     protected override void OnParametersSet()
     {
-        SetDirection();
+        SetCharacterCss();
     }
 
-    void SetDirection()
+    void SetCharacterCss()
     {
-        DirectionCss = $"face-{Model.Direction}".ToLower();
+        var animation = Model.Animation.ToString().ToLower();
+        var direction = $"face-{Model.Direction}".ToLower();
+
+        CharacterCss = $"{animation} {direction}";
     }
 }

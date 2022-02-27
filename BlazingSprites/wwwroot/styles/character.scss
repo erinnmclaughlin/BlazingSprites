@@ -54,30 +54,29 @@ $walking-width: $frame-size * $walking-keyframes;
         }
     }
 
+    &.face-down > .spritesheet {
+        top: 0;
+    }
+
+    &.face-up > .spritesheet {
+        top: -1 * $frame-size;
+    }
+
+    &.face-right > .spritesheet {
+        top: -2 * $frame-size;
+    }
+
+    &.face-left > .spritesheet {
+        top: -3 * $frame-size;
+    }
+
     &.walking {
 
         > .spritesheet {
             animation: walk 1s steps($walking-keyframes) infinite;
         }
-
-        &.face-down > .spritesheet {
-            top: 0;
-        }
-
-        &.face-up > .spritesheet {
-            top: -1 * $frame-size;
-        }
-
-        &.face-right > .spritesheet {
-            top: -2 * $frame-size;
-        }
-
-        &.face-left > .spritesheet {
-            top: -3 * $frame-size;
-        }
     }
 }
-
 
 @keyframes walk {
     from {

@@ -2,6 +2,7 @@
 
 public class CharacterModel
 {
+    public Animation Animation { get; set; }
     public Direction Direction { get; set; } = Direction.Down;
 
     public BlushColor BlushColor { get; set; }

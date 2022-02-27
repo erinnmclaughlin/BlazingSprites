@@ -11,6 +11,16 @@
     <EditForm Model="Model">
 
         <div>
+            <label>Animation</label>
+            <InputSelect @bind-Value="Model.Animation">
+                @foreach (var animation in Enum.GetValues<Animation>())
+                {
+                    <option>@animation</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div>
             <label>Direction</label>
             <InputSelect @bind-Value="Model.Direction">
                 @foreach (var direction in Enum.GetValues<Direction>())

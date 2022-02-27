@@ -1,5 +1,6 @@
 ﻿namespace BlazingSprites.Models;
 
+public enum Animation { None, Walking }
 public enum Direction { Down, Up, Left, Right }
 
 public enum HairColor { Black, Blonde, Brown, LightBrown, Copper, Emerald, Green, Grey, Lilac, Navy, Pink, Purple, Red, Turquoise }
