@@ -1,0 +1,89 @@
+﻿@import 'base.scss';
+
+$walking-keyframes: 8;
+$walking-width: $frame-size * $walking-keyframes;
+
+.character {
+    width: $frame-size;
+    height: $frame-size + ($base-width / 2);
+    overflow: hidden;
+    position: relative;
+
+    .body {
+        width: $walking-width;
+    }
+
+    .blush, .lips {
+        width: 5 * $walking-width;
+
+        &.none {
+            left: $walking-width;
+        }
+
+        @for $i from 1 through 5 {
+
+            &.color-#{$i} {
+                left: -1 * ($i - 1) * $walking-width
+            }
+        }
+    }
+
+    .pants, .shirt, .shoes {
+        width: 10 * $walking-width;
+
+        &.none {
+            left: $walking-width;
+        }
+
+        @for $i from 1 through 10 {
+
+            &.color-#{$i} {
+                left: -1 * ($i - 1) * $walking-width
+            }
+        }
+    }
+
+    .hair, .eyes {
+        width: 14 * $walking-width;
+
+        @for $i from 1 through 14 {
+
+            &.color-#{$i} {
+                left: -1 * ($i - 1) * $walking-width
+            }
+        }
+    }
+
+    &.face-down > .spritesheet {
+        top: 0;
+    }
+
+    &.face-up > .spritesheet {
+        top: -1 * $frame-size;
+    }
+
+    &.face-right > .spritesheet {
+        top: -2 * $frame-size;
+    }
+
+    &.face-left > .spritesheet {
+        top: -3 * $frame-size;
+    }
+
+    &.walking {
+
+        > .spritesheet {
+            animation: walk 1s steps($walking-keyframes) infinite;
+        }
+    }
+}
+
+@keyframes walk {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-1 * $walking-width, 0, 0);
+    }
+}

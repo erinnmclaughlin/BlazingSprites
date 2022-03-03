@@ -1,0 +1,10 @@
+﻿@import 'base.scss';
+
+.shadow {
+    bottom: 0;
+    image-rendering: pixelated;
+    width: 16px * $pixel-size;
+    height: 16px * $pixel-size;
+    margin-left: 45px;
+    position: absolute;
+}
